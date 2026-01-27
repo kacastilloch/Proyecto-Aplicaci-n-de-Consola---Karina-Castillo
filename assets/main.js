@@ -137,3 +137,5 @@ function realizarOperacion(opcion) {
     alert(`El resultado de la ${tipoOperacion} es: ${resultado}`);
     guardarCalculo(tipoOperacion, num1, num2, simbolo, resultado);
 }
+
+iniciarCalculadora();//llamando a la funcion FIN DEL CODIGO :D
