@@ -5,8 +5,8 @@
 //-Pedir al usuario que ingrese dos números y almacenarlos en variables.
 //-Implementar las operaciones básicas de suma, resta, multiplicación y división.
 //-Usar estructuras condicionales como if, else y switch para evaluar diferentes situaciones.
-//-Usar los bucles for y while para recorrer los arreglos creados.
-//-Implementar una función específica que permita filtrar elementos del arreglo según una condición determinada
+
+
 //-Llamar funciones dentro de otras funciones para optimizar la estructura del código.
 //-Usar un arreglo de objetos y recorrerlo utilizando los métodos map() o forEach()
 
@@ -37,4 +37,29 @@ function guardarCalculo(tipo, num1, num2, simbolo, resultado) {
     };
     historialCalculo.push(registro);
     console.log(`Calculo registrado: ${registro.expresion} = ${registro.resultado}`);
+}
+
+//-Implementar una función específica que permita filtrar elementos del arreglo según una condición determinada
+function buscarOperacion(){
+    if (historialCalculo.length === 0) {
+        alert("No hay cálculos registrados aún.");
+        return;
+    }
+    let tipoOperacion = prompt("Ingrese el tipo de operación a buscar (suma, resta, multiplicacion, division):").toLowerCase();
+    let resultados = "Resultados encontrados:\n";
+    let contador = 0;
+
+    //-Usar los bucles for y while para recorrer los arreglos creados.
+    for (let i = 0; i < historialCalculo.length; i++) {
+        let calc = historialCalculo[i];
+        if (calc.operacion === tipoOperacion) {
+            resultados += calc.resumenCalculo() + "\n";
+            contador++;
+        }
+    }
+    if (contador === 0) {
+        alert("No se encontraron resultados para la operación solicitada.");
+    } else {
+        alert(resultados);
+    }
 }
